@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: applied-ai-agent-platform
+Version: 0.1.0
+Summary: A governed MCP agent reference workflow with evaluation and audit tracing
+Requires-Python: >=3.11
+Requires-Dist: mcp<2,>=1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"

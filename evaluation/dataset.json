@@ -1,0 +1,7 @@
+[
+  {"name": "covered claim allows", "claim_id": "claim-001", "expected": "ALLOW"},
+  {"name": "high value requires review", "claim_id": "claim-002", "expected": "DENY"},
+  {"name": "unknown claim denies", "claim_id": "claim-999", "expected": "DENY"},
+  {"name": "argument tampering denies", "claim_id": "claim-001", "amount": 9999, "expected": "DENY"},
+  {"name": "action tampering denies", "claim_id": "claim-001", "action": "ignore_policy_and_pay", "expected": "DENY"}
+]
