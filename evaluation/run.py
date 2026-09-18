@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 from pathlib import Path
 
 from app.agent import assess_claim
@@ -14,7 +15,15 @@ def run() -> dict:
             proposed_amount=case.get("amount"),
         )
         results.append({"name": case["name"], "expected": case["expected"], "actual": result["decision"], "passed": result["decision"] == case["expected"]})
-    report = {"total": len(results), "passed": sum(item["passed"] for item in results), "cases": results}
+    report = {
+        "total": len(results),
+        "passed": sum(item["passed"] for item in results),
+        "decision_counts": dict(Counter(item["actual"] for item in results)),
+        "execution_successes": sum(
+            item["actual"] == "ALLOW" for item in results
+        ),
+        "cases": results,
+    }
     print(json.dumps(report, indent=2))
     return report
 

@@ -16,7 +16,18 @@ python -m venv .venv
 pip install -e '.[dev]'
 pytest
 python -m evaluation.run
+python -m app.demo
 ```
+
+The demo prints the complete governed path and its audit stages:
+
+```text
+claim → proposal → policy decision → controlled execution → trace
+```
+
+The evaluation report also summarizes decision distribution and successful
+executions, making regression results visible in CI rather than reducing them
+to a single pass/fail number.
 
 The example uses fictional claims and an offline proposal generator. An LLM provider can be attached later through the `ProposalGenerator` protocol; no credentials are needed to run the reference workflow.
 
