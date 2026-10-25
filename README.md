@@ -96,6 +96,24 @@ ARC is a reference implementation, not a production claims system. It uses synth
 
 A production deployment would still need real identity and authorization, durable audit storage, privacy controls, provider evaluation, operational processes and domain-specific review.
 
+## Project status
+
+**Maturity: runnable reference implementation / public preview.** The complete
+offline workflow, tests, security cases and evaluation harness are included.
+Production identity, persistence, provider integration and operational
+hardening are intentionally outside this repository.
+
+## Fastest demo
+
+```bash
+python3 -m app.demo
+python3 -m evaluation.run
+pytest -q
+```
+
+The output is deterministic and uses synthetic data, so the demo is safe to
+run locally without credentials or external services.
+
 ## Design principle
 
 > **AI may propose. Evidence, policy and accountable software decide what can happen.**
